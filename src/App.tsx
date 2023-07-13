@@ -33,6 +33,8 @@ import ListaAccountTelegramPage from './pages/accountTelegram/ListaAccountTelegr
 import ListaTerremotiPage from './pages/terremoti/ListaTerremotiPage';
 import ListaFiltriPersonaliPage from './pages/terremoti/ListaFiltriPersonaliPage';
 import SchedaFiltroTerremotoPage from './pages/terremoti/SchedaFiltroTerremotoPage';
+import MappaTerremotiPage from './pages/terremoti/MappaTerremotiPage';
+import FiltroMappaTerremotiPage from './pages/terremoti/FiltroMappaTerremotiPage';
 
 
 
@@ -298,6 +300,24 @@ function App() {
             element={
               <PrivateRoute>
                 <SchedaFiltroTerremotoPage />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/mappa-terremoti"
+            element={
+              <PrivateRoute>
+                <MappaTerremotiPage />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/filtro-mappa-terremoti"
+            element={
+              <PrivateRoute>
+                <FiltroMappaTerremotiPage />
               </PrivateRoute>
             }
           />

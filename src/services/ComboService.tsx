@@ -30,11 +30,39 @@ const getTipologiaFiltriPersonali = (token: any) => {
     return http.get(root, { params, headers });
 }
 
+const getRegioni = (token: any) => {
+    const params = new URLSearchParams([["nomeMetodo", "getRegioni"]]);
+    const headers = {
+        token: token,
+    }
 
+    return http.get(root, { params, headers });
+}
+
+const getProvince = (token: any, codiceRegione: any) => {
+    const params = new URLSearchParams([["nomeMetodo", "getProvince"], ["codiceRegione", codiceRegione]]);
+    const headers = {
+        token: token,
+    }
+
+    return http.get(root, { params, headers });
+}
+
+const getComuni = (token: any, codiceProvincia: any) => {
+    const params = new URLSearchParams([["nomeMetodo", "getComuni"], ["codiceProvincia", codiceProvincia]]);
+    const headers = {
+        token: token,
+    }
+
+    return http.get(root, { params, headers });
+}
 
 const comboService = {
     getComboVociMenu,
     getComboRuoli,
-    getTipologiaFiltriPersonali
+    getTipologiaFiltriPersonali,
+    getRegioni,
+    getProvince,
+    getComuni
 };
 export default comboService;

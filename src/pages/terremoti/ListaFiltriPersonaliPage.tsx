@@ -19,8 +19,37 @@ export default function ListaFiltriPersonaliPage() {
     const [utenti, setUtenti] = React.useState([]);
     const [paginaUtente, setPaginaUtente] = React.useState(1);
 
-    const [dataInizioIntervallo, setDataInizioIntervallo] = React.useState(getDataMenoXGiorniPrecedenti(7).toISOString().substring(0, 10));
-    const [dataFineIntervallo, setDataFineIntervallo] = React.useState(new Date().toISOString().substring(0, 10));
+    const [filtroDaEliminare, setFiltroDaEliminare] = React.useState<any>();
+
+    const eliminaFiltro = async () => {
+        await terremotiService.deleteFiltroPersonale(utenteLoggato.token, filtroDaEliminare.idFiltroPersonale).then(response => {
+            toast.success("Il filtro è stato eliminato con successo!", {
+                position: "top-center",
+                autoClose: 5000,
+            });
+            setFiltroDaEliminare(undefined);
+            getUtenti(paginaUtente);
+        }).catch(e => {
+            //---------------------------------------------
+            try {
+                console.error(e);
+                toast.error(e.response.data.descrizione, {
+                    position: "top-center",
+                    autoClose: 5000,
+                });
+            } catch (e: any) {
+                toast.error("Errore imprevisto", {
+                    position: "top-center",
+                    autoClose: 5000,
+                });
+            }
+            if (e.response.status === 401) {
+                navigate("/logout");
+            }
+            //---------------------------------------------
+        });
+    }
+
 
     const getUtenti = async (pagina: any) => {
         dispatch(fetchIsLoadingAction(true));
@@ -99,6 +128,8 @@ export default function ListaFiltriPersonaliPage() {
                                             <th scope="col">Nome</th>
                                             <th scope="col">Dettagli</th>
                                             <th scope="col"></th>
+                                            <th scope="col"></th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -115,7 +146,8 @@ export default function ListaFiltriPersonaliPage() {
                                                     {utente.idTipoFiltroPersonale=="MAGNITUDO_DISTANZA" && <span> Eventi con magnitudo maggiore o uguale a {utente.magnitudo} e con una distanza minore o uguale a {utente.distanza} Km da {utente.indirizzo}, {utente.descrizioneComune} ({utente.codiceProvincia}) </span>}
 
                                                     </td>
-                                                    <td className='text-center'><Link to={"/terremoti/" + utente.id} className='btn btn-primary'><i className="fa-solid fa-circle-info"></i></Link></td>
+                                                    <td className='text-center'><Link to={"/filtri-personali/" + utente.idFiltroPersonale} className='btn btn-primary'><i className="fa-solid fa-circle-info"></i></Link></td>
+                                                    <td className='text-center'><span onClick={() => setFiltroDaEliminare(utente)} data-bs-toggle="modal" data-bs-target="#eliminaFiltro" className='btn btn-danger'><i className="fa-solid fa-trash-can"></i></span></td>
 
                                                 </tr>
                                             )}
@@ -137,6 +169,24 @@ export default function ListaFiltriPersonaliPage() {
                     </div>
                 </div>
 
+            </div>
+
+            <div className="modal fade" id="eliminaFiltro" data-bs-keyboard="false" aria-labelledby="eliminaFiltroLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="eliminaFiltroLabel">Attenzione!</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            Vuoi eliminare il filtro <strong>{filtroDaEliminare != undefined ? filtroDaEliminare.nomeFiltro : ""}</strong> con identificativo <strong>{filtroDaEliminare != undefined ? filtroDaEliminare.idFiltroPersonale : ""}</strong>?<br /> L'operazione è irreversibile!
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Annulla<i className="fa-solid fa-undo ps-2"></i></button>
+                            <button onClick={eliminaFiltro} type="button" className="btn btn-primary" data-bs-dismiss="modal" >Elimina<i className="fa-solid fa-trash-can ps-2"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 

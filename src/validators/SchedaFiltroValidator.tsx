@@ -7,8 +7,8 @@ export default function SchedaFiltroValidator(filtro: any) {
         return;
     }
 
-    if (filtro === undefined || filtro.idTipoFiltroPersonale === null || filtro.idTipoFiltroPersonale === "") {
-        errors.nome = "Il tipo filtro è richiesto";
+    if (filtro === undefined || filtro.nomeFiltro === null || filtro.nomeFiltro === "") {
+        errors.nomeFiltro = "Il nome filtro è richiesto";
     }
 
     if (filtro.idTipoFiltroPersonale === "MAGNITUDO" || filtro.idTipoFiltroPersonale === "MAGNITUDO_DISTANZA") {
@@ -52,7 +52,7 @@ export default function SchedaFiltroValidator(filtro: any) {
     }
 
 
-
+    console.log(errors);
 
     return errors;
 } 
