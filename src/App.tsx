@@ -30,6 +30,9 @@ import SchedaRuoloPage from './pages/ruoli/SchedaRuoloPage';
 import ListaUtentiPage from './pages/utenti/ListaUtentiPage';
 import SchedaUtentePage from './pages/utenti/SchedaUtentePage';
 import ListaAccountTelegramPage from './pages/accountTelegram/ListaAccountTelegramPage';
+import ListaTerremotiPage from './pages/terremoti/ListaTerremotiPage';
+import ListaFiltriPersonaliPage from './pages/terremoti/ListaFiltriPersonaliPage';
+import SchedaFiltroTerremotoPage from './pages/terremoti/SchedaFiltroTerremotoPage';
 
 
 
@@ -262,6 +265,43 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          <Route
+            path="/terremoti"
+            element={
+              <PrivateRoute>
+                <ListaTerremotiPage />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/lista-filtri-personali"
+            element={
+              <PrivateRoute>
+                <ListaFiltriPersonaliPage />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/filtri-personali"
+            element={
+              <PrivateRoute>
+                <SchedaFiltroTerremotoPage />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/filtri-personali/:idFiltroPersonale"
+            element={
+              <PrivateRoute>
+                <SchedaFiltroTerremotoPage />
+              </PrivateRoute>
+            }
+          />
+
 
           <Route
             path="*"

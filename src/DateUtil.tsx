@@ -33,3 +33,9 @@ function aggiungiZeriMese(giorno: number) {
     }
 
 }
+
+export function getDataMenoXGiorniPrecedenti(giorni: number){
+    let date = new Date();
+    date.setDate(date.getDate() - giorni);
+    return date;
+}
