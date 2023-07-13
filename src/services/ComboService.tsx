@@ -21,10 +21,20 @@ const getComboRuoli = (token: any) => {
     return http.get(root, { params, headers });
 }
 
+const getTipologiaFiltriPersonali = (token: any) => {
+    const params = new URLSearchParams([["nomeMetodo", "getTipologiaFiltriPersonali"]]);
+    const headers = {
+        token: token,
+    }
+
+    return http.get(root, { params, headers });
+}
+
 
 
 const comboService = {
     getComboVociMenu,
-    getComboRuoli
+    getComboRuoli,
+    getTipologiaFiltriPersonali
 };
 export default comboService;
