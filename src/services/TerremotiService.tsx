@@ -75,6 +75,14 @@ const deleteFiltroPersonale = (token: any, idFiltroPersonale: any) => {
     return http.delete(root, { params, headers });
 }
 
+const getTerremoto = (token: any, id: any) => {
+    const params = new URLSearchParams([["nomeMetodo", "getTerremoto"], ["id", id]]);
+    const headers = {
+        token: token,
+    }
+
+    return http.get(root, { params, headers });
+}
 
 /*const getUtente = (token: any, idUtente: any) => {
     const params = new URLSearchParams([["nomeMetodo", "getUtente"], ["idUtente", idUtente]]);
@@ -116,19 +124,37 @@ const sbloccaUtente = (token: any, jsonBody: any, idUtente: any) => {
     return http.put(root, jsonBody, { params, headers });
 }*/
 
+const getDistanzaComuniDatoTerremoto = (token: any, id: any, pagina: any) => {
+    const params = new URLSearchParams([["nomeMetodo", "getDistanzaComuniDatoTerremoto"], ["id", id], ["pagina", pagina]]);
+    const headers = {
+        token: token,
+    }
+
+    return http.get(root, { params, headers });
+}
+
+const getDistanzaLuoghiPersonaliDatoTerremoto = (token: any, id: any, pagina: any) => {
+    const params = new URLSearchParams([["nomeMetodo", "getDistanzaLuoghiPersonaliDatoTerremoto"], ["id", id], ["pagina", pagina]]);
+    const headers = {
+        token: token,
+    }
+
+    return http.get(root, { params, headers });
+}
+
 
 const terremotiService = {
     getTerremotiPerLista,
     getTerremotiPerMappaGenerale,
-    getTerremotiPerMappaFiltro,/*
-    getTerremoto,*/
+    getTerremotiPerMappaFiltro,
+    getTerremoto,
     getCoordinateDatoIndirizzo,
     inserisciFiltroPersonale,
     getFiltriPersonali,
     getFiltroPersonale,
-    deleteFiltroPersonale,/*
+    deleteFiltroPersonale,
     getDistanzaComuniDatoTerremoto,
-    getDistanzaLuoghiPersonaliDatoTerremoto,
+    getDistanzaLuoghiPersonaliDatoTerremoto,/*
     getCronJobs*/
 };
 export default terremotiService;

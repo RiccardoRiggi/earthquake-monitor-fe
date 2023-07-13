@@ -129,6 +129,8 @@ export default function MappaTerremotiPage() {
                                                         <span className='h5'>{elemento.magnitude}</span>{elemento.magType}<br />
                                                     </span>
                                                     {elemento.eventLocationName}<br />{getOra(elemento.time) +" del "+getData(elemento.time)}
+                                                    <br /><Link to={"/terremoti/" + elemento.id}>Visualizza dettagli</Link>
+
                                                 </div>
                                             </Popup>
                                         </Marker>

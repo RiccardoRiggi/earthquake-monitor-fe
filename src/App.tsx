@@ -35,6 +35,7 @@ import ListaFiltriPersonaliPage from './pages/terremoti/ListaFiltriPersonaliPage
 import SchedaFiltroTerremotoPage from './pages/terremoti/SchedaFiltroTerremotoPage';
 import MappaTerremotiPage from './pages/terremoti/MappaTerremotiPage';
 import FiltroMappaTerremotiPage from './pages/terremoti/FiltroMappaTerremotiPage';
+import SchedaTerremotoPage from './pages/terremoti/SchedaTerremotoPage';
 
 
 
@@ -273,6 +274,15 @@ function App() {
             element={
               <PrivateRoute>
                 <ListaTerremotiPage />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/terremoti/:id"
+            element={
+              <PrivateRoute>
+                <SchedaTerremotoPage />
               </PrivateRoute>
             }
           />
