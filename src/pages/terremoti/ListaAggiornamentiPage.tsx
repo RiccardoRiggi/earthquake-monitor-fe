@@ -13,25 +13,22 @@ export default function ListaAggiornamentiPage() {
 
     const utenteLoggato = useSelector((state: any) => state.utenteLoggato);
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const [ricercaEseguita, setRicercaEseguita] = React.useState(false);
-    const [utenti, setUtenti] = React.useState([]);
-    const [paginaUtente, setPaginaUtente] = React.useState(1);
+    const [lista, setLista] = React.useState([]);
+    const [paginaAggiornamenti, setPaginaAggiornamenti] = React.useState(1);
 
-    const [dataInizioIntervallo, setDataInizioIntervallo] = React.useState(getDataMenoXGiorniPrecedenti(7).toISOString().substring(0, 10));
-    const [dataFineIntervallo, setDataFineIntervallo] = React.useState(new Date().toISOString().substring(0, 10));
 
-    const getUtenti = async (pagina: any) => {
+    const getAggiornamenti = async (pagina: any) => {
 
         if (pagina !== 0) {
 
             await terremotiService.getCronJobs(utenteLoggato.token, pagina).then(response => {
                 if (response.data.length !== 0) {
-                    setUtenti(response.data);
-                    setPaginaUtente(pagina);
+                    setLista(response.data);
+                    setPaginaAggiornamenti(pagina);
                 } else if (pagina == 1 && response.data.length === 0) {
-                    toast.warning("Non sono stati trovati utenti", {
+                    toast.warning("Non sono stati trovati aggiornamenti recenti", {
                         position: "top-center",
                         autoClose: 5000,
                     });
@@ -65,7 +62,7 @@ export default function ListaAggiornamentiPage() {
     useEffect(() => {
         if (!ricercaEseguita) {
             setRicercaEseguita(true);
-            getUtenti(paginaUtente);
+            getAggiornamenti(paginaAggiornamenti);
         }
     }, []);
 
@@ -99,11 +96,11 @@ export default function ListaAggiornamentiPage() {
                                     <tbody>
 
                                         {
-                                            Array.isArray(utenti) && utenti.map((utente: any, index: number) =>
+                                            Array.isArray(lista) && lista.map((aggiornamento: any, index: number) =>
                                                 <tr key={index}>
-                                                    <th className='text-center' scope="row">{utente.idCronJob}</th>
-                                                    <td>{getData(utente.dataEvento)}</td>
-                                                    <td>{getOra(utente.dataEvento)}</td>
+                                                    <th className='text-center' scope="row">{aggiornamento.idCronJob}</th>
+                                                    <td>{getData(aggiornamento.dataEvento)}</td>
+                                                    <td>{getOra(aggiornamento.dataEvento)}</td>
                                             
                                                 </tr>
                                             )}
@@ -114,13 +111,13 @@ export default function ListaAggiornamentiPage() {
                             </div>
                         </div>
                         <div className='col-12 text-end'>
-                            <small>Pagina {paginaUtente}</small>
+                            <small>Pagina {paginaAggiornamenti}</small>
                         </div>
                         <div className='col-6 text-end pt-2'>
-                            <span onClick={() => getUtenti(paginaUtente - 1)} className='btn btn-primary'><i className='fa-solid fa-angles-left pe-2'></i>Precedente</span>
+                            <span onClick={() => getAggiornamenti(paginaAggiornamenti - 1)} className='btn btn-primary'><i className='fa-solid fa-angles-left pe-2'></i>Precedente</span>
                         </div>
                         <div className='col-6 text-start pt-2'>
-                            <span onClick={() => getUtenti(paginaUtente + 1)} className='btn btn-primary'>Successivo<i className='fa-solid fa-angles-right ps-2'></i></span>
+                            <span onClick={() => getAggiornamenti(paginaAggiornamenti + 1)} className='btn btn-primary'>Successivo<i className='fa-solid fa-angles-right ps-2'></i></span>
                         </div>
                     </div>
                 </div>

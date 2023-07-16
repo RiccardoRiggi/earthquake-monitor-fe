@@ -21,12 +21,9 @@ export default function FiltroMappaTerremotiPage() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const [ricercaEseguita, setRicercaEseguita] = React.useState(false);
     const [lista, setLista] = React.useState<any>([]);
 
     const [magnitudo, setMagnitudo] = React.useState(2);
-    const [dataInizioIntervallo, setDataInizioIntervallo] = React.useState(getDataMenoXGiorniPrecedenti(7).toISOString().substring(0, 10));
-    const [dataFineIntervallo, setDataFineIntervallo] = React.useState(new Date().toISOString().substring(0, 10));
 
     const eseguiRicerca = async (lat: any, lon: any) => {
         dispatch(fetchIsLoadingAction(true));

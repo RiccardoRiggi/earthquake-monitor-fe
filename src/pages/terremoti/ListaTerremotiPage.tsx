@@ -16,21 +16,19 @@ export default function ListaTerremotiPage() {
     const dispatch = useDispatch();
 
     const [ricercaEseguita, setRicercaEseguita] = React.useState(false);
-    const [utenti, setUtenti] = React.useState([]);
-    const [paginaUtente, setPaginaUtente] = React.useState(1);
+    const [lista, setLista] = React.useState([]);
+    const [paginaTerremoti, setPaginaTerremoti] = React.useState(1);
 
-    const [dataInizioIntervallo, setDataInizioIntervallo] = React.useState(getDataMenoXGiorniPrecedenti(7).toISOString().substring(0, 10));
-    const [dataFineIntervallo, setDataFineIntervallo] = React.useState(new Date().toISOString().substring(0, 10));
 
-    const getUtenti = async (pagina: any) => {
-        dispatch(fetchIsLoadingAction(true));
+    const getTerremoti = async (pagina: any) => {
 
         if (pagina !== 0) {
+            dispatch(fetchIsLoadingAction(true));
 
             await terremotiService.getTerremotiPerLista(utenteLoggato.token, pagina).then(response => {
                 if (response.data.length !== 0) {
-                    setUtenti(response.data);
-                    setPaginaUtente(pagina);
+                    setLista(response.data);
+                    setPaginaTerremoti(pagina);
                 } else if (pagina == 1 && response.data.length === 0) {
                     toast.warning("Non sono stati trovati utenti", {
                         position: "top-center",
@@ -68,7 +66,7 @@ export default function ListaTerremotiPage() {
     useEffect(() => {
         if (!ricercaEseguita) {
             setRicercaEseguita(true);
-            getUtenti(paginaUtente);
+            getTerremoti(paginaTerremoti);
         }
     }, []);
 
@@ -105,15 +103,15 @@ export default function ListaTerremotiPage() {
                                     <tbody>
 
                                         {
-                                            Array.isArray(utenti) && utenti.map((utente: any, index: number) =>
+                                            Array.isArray(lista) && lista.map((terremoto: any, index: number) =>
                                                 <tr key={index}>
-                                                    <th className='text-center' scope="row">{utente.id}</th>
-                                                    <td>{getData(utente.time)}</td>
-                                                    <td>{getOra(utente.time)}</td>
-                                                    <td>{utente.eventLocationName}</td>
-                                                    <td>{utente.magType} {utente.magnitude}</td>
-                                                    <td>{utente.depth} Km</td>
-                                                    <td className='text-center'><Link to={"/terremoti/" + utente.id} className='btn btn-primary'><i className="fa-solid fa-circle-info"></i></Link></td>
+                                                    <th className='text-center' scope="row">{terremoto.id}</th>
+                                                    <td>{getData(terremoto.time)}</td>
+                                                    <td>{getOra(terremoto.time)}</td>
+                                                    <td>{terremoto.eventLocationName}</td>
+                                                    <td>{terremoto.magType} {terremoto.magnitude}</td>
+                                                    <td>{terremoto.depth} Km</td>
+                                                    <td className='text-center'><Link to={"/terremoti/" + terremoto.id} className='btn btn-primary'><i className="fa-solid fa-circle-info"></i></Link></td>
 
                                                 </tr>
                                             )}
@@ -124,13 +122,13 @@ export default function ListaTerremotiPage() {
                             </div>
                         </div>
                         <div className='col-12 text-end'>
-                            <small>Pagina {paginaUtente}</small>
+                            <small>Pagina {paginaTerremoti}</small>
                         </div>
                         <div className='col-6 text-end pt-2'>
-                            <span onClick={() => getUtenti(paginaUtente - 1)} className='btn btn-primary'><i className='fa-solid fa-angles-left pe-2'></i>Precedente</span>
+                            <span onClick={() => getTerremoti(paginaTerremoti - 1)} className='btn btn-primary'><i className='fa-solid fa-angles-left pe-2'></i>Precedente</span>
                         </div>
                         <div className='col-6 text-start pt-2'>
-                            <span onClick={() => getUtenti(paginaUtente + 1)} className='btn btn-primary'>Successivo<i className='fa-solid fa-angles-right ps-2'></i></span>
+                            <span onClick={() => getTerremoti(paginaTerremoti + 1)} className='btn btn-primary'>Successivo<i className='fa-solid fa-angles-right ps-2'></i></span>
                         </div>
                     </div>
                 </div>

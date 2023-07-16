@@ -16,8 +16,8 @@ export default function ListaFiltriPersonaliPage() {
     const dispatch = useDispatch();
 
     const [ricercaEseguita, setRicercaEseguita] = React.useState(false);
-    const [utenti, setUtenti] = React.useState([]);
-    const [paginaUtente, setPaginaUtente] = React.useState(1);
+    const [lista, setLista] = React.useState([]);
+    const [paginaFiltro, setPaginaFiltro] = React.useState(1);
 
     const [filtroDaEliminare, setFiltroDaEliminare] = React.useState<any>();
 
@@ -28,7 +28,7 @@ export default function ListaFiltriPersonaliPage() {
                 autoClose: 5000,
             });
             setFiltroDaEliminare(undefined);
-            getUtenti(paginaUtente);
+            getFiltriPersonali(paginaFiltro);
         }).catch(e => {
             //---------------------------------------------
             try {
@@ -51,15 +51,14 @@ export default function ListaFiltriPersonaliPage() {
     }
 
 
-    const getUtenti = async (pagina: any) => {
-        dispatch(fetchIsLoadingAction(true));
+    const getFiltriPersonali = async (pagina: any) => {
 
         if (pagina !== 0) {
-
+            dispatch(fetchIsLoadingAction(true));
             await terremotiService.getFiltriPersonali(utenteLoggato.token, pagina).then(response => {
                 if (response.data.length !== 0) {
-                    setUtenti(response.data);
-                    setPaginaUtente(pagina);
+                    setLista(response.data);
+                    setPaginaFiltro(pagina);
                 } else if (pagina == 1 && response.data.length === 0) {
                     toast.warning("Non sono stati trovati utenti", {
                         position: "top-center",
@@ -97,7 +96,7 @@ export default function ListaFiltriPersonaliPage() {
     useEffect(() => {
         if (!ricercaEseguita) {
             setRicercaEseguita(true);
-            getUtenti(paginaUtente);
+            getFiltriPersonali(paginaFiltro);
         }
     }, []);
 
@@ -135,19 +134,19 @@ export default function ListaFiltriPersonaliPage() {
                                     <tbody>
 
                                         {
-                                            Array.isArray(utenti) && utenti.map((utente: any, index: number) =>
+                                            Array.isArray(lista) && lista.map((filtro: any, index: number) =>
                                                 <tr key={index}>
-                                                    <th className='text-center' scope="row">{utente.idFiltroPersonale} <i title={utente.descrizione} className='text-primary fa-solid fa-circle-info'></i></th>
-                                                    <td>{getData(utente.dataCreazione)} - {getOra(utente.dataCreazione)}</td>
-                                                    <td>{utente.nomeFiltro}</td>
+                                                    <th className='text-center' scope="row">{filtro.idFiltroPersonale} <i title={filtro.descrizione} className='text-primary fa-solid fa-circle-info'></i></th>
+                                                    <td>{getData(filtro.dataCreazione)} - {getOra(filtro.dataCreazione)}</td>
+                                                    <td>{filtro.nomeFiltro}</td>
                                                     <td>
-                                                    {utente.idTipoFiltroPersonale=="MAGNITUDO" && <span> Eventi con magnitudo maggiore o uguale a {utente.magnitudo} </span>}
-                                                    {utente.idTipoFiltroPersonale=="DISTANZA" && <span> Eventi con distanza minore o uguale a {utente.distanza} Km da {utente.indirizzo}, {utente.descrizioneComune} ({utente.codiceProvincia}) </span>}
-                                                    {utente.idTipoFiltroPersonale=="MAGNITUDO_DISTANZA" && <span> Eventi con magnitudo maggiore o uguale a {utente.magnitudo} e con una distanza minore o uguale a {utente.distanza} Km da {utente.indirizzo}, {utente.descrizioneComune} ({utente.codiceProvincia}) </span>}
+                                                        {filtro.idTipoFiltroPersonale == "MAGNITUDO" && <span> Eventi con magnitudo maggiore o uguale a {filtro.magnitudo} </span>}
+                                                        {filtro.idTipoFiltroPersonale == "DISTANZA" && <span> Eventi con distanza minore o uguale a {filtro.distanza} Km da {filtro.indirizzo}, {filtro.descrizioneComune} ({filtro.codiceProvincia}) </span>}
+                                                        {filtro.idTipoFiltroPersonale == "MAGNITUDO_DISTANZA" && <span> Eventi con magnitudo maggiore o uguale a {filtro.magnitudo} e con una distanza minore o uguale a {filtro.distanza} Km da {filtro.indirizzo}, {filtro.descrizioneComune} ({filtro.codiceProvincia}) </span>}
 
                                                     </td>
-                                                    <td className='text-center'><Link to={"/filtri-personali/" + utente.idFiltroPersonale} className='btn btn-primary'><i className="fa-solid fa-circle-info"></i></Link></td>
-                                                    <td className='text-center'><span onClick={() => setFiltroDaEliminare(utente)} data-bs-toggle="modal" data-bs-target="#eliminaFiltro" className='btn btn-danger'><i className="fa-solid fa-trash-can"></i></span></td>
+                                                    <td className='text-center'><Link to={"/filtri-personali/" + filtro.idFiltroPersonale} className='btn btn-primary'><i className="fa-solid fa-circle-info"></i></Link></td>
+                                                    <td className='text-center'><span onClick={() => setFiltroDaEliminare(filtro)} data-bs-toggle="modal" data-bs-target="#eliminaFiltro" className='btn btn-danger'><i className="fa-solid fa-trash-can"></i></span></td>
 
                                                 </tr>
                                             )}
@@ -158,13 +157,13 @@ export default function ListaFiltriPersonaliPage() {
                             </div>
                         </div>
                         <div className='col-12 text-end'>
-                            <small>Pagina {paginaUtente}</small>
+                            <small>Pagina {paginaFiltro}</small>
                         </div>
                         <div className='col-6 text-end pt-2'>
-                            <span onClick={() => getUtenti(paginaUtente - 1)} className='btn btn-primary'><i className='fa-solid fa-angles-left pe-2'></i>Precedente</span>
+                            <span onClick={() => getFiltriPersonali(paginaFiltro - 1)} className='btn btn-primary'><i className='fa-solid fa-angles-left pe-2'></i>Precedente</span>
                         </div>
                         <div className='col-6 text-start pt-2'>
-                            <span onClick={() => getUtenti(paginaUtente + 1)} className='btn btn-primary'>Successivo<i className='fa-solid fa-angles-right ps-2'></i></span>
+                            <span onClick={() => getFiltriPersonali(paginaFiltro + 1)} className='btn btn-primary'>Successivo<i className='fa-solid fa-angles-right ps-2'></i></span>
                         </div>
                     </div>
                 </div>

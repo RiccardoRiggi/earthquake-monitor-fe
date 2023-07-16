@@ -37,11 +37,8 @@ export default function SchedaFiltroTerremotoPage() {
     const [nomeFiltro, setNomeFiltro] = React.useState<any>("");
     const [idTipoFiltroPersonale, setIdTipoFiltroPersonale] = React.useState("");
     const [codiceRegione, setCodiceRegione] = React.useState<any>("");
-    const [descrizioneRegione, setDescrizioneRegione] = React.useState<any>("");
     const [codiceProvincia, setCodiceProvincia] = React.useState<any>("");
-    const [descrizioneProvincia, setDescrizioneProvincia] = React.useState<any>("");
     const [codiceComune, setCodiceComune] = React.useState<any>("");
-    const [descrizioneComune, setDescrizioneComune] = React.useState<any>("");
     const [cap, setCap] = React.useState<any>("");
     const [latitudine, setLatitudine] = React.useState<any>("");
     const [longitudine, setLongitudine] = React.useState<any>("");
@@ -218,7 +215,7 @@ export default function SchedaFiltroTerremotoPage() {
 
 
 
-    const getUtente = async () => {
+    const getFiltroPersonale = async () => {
         dispatch(fetchIsLoadingAction(true));
         await terremotiService.getFiltroPersonale(utenteLoggato.token, params.idFiltroPersonale).then(response => {
             console.info(response.data);
@@ -333,7 +330,7 @@ export default function SchedaFiltroTerremotoPage() {
 
         if (!ricercaEseguita) {
             if (params.idFiltroPersonale !== undefined) {
-                getUtente();
+                getFiltroPersonale();
             }
             getTipologiaFiltriPersonali();
             getRegioni();

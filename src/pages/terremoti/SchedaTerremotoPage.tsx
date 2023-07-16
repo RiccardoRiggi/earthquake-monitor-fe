@@ -15,7 +15,6 @@ import { MapContainer } from '../../../node_modules/react-leaflet/lib/MapContain
 import { TileLayer } from '../../../node_modules/react-leaflet/lib/TileLayer'
 import { Popup } from '../../../node_modules/react-leaflet/lib/Popup'
 import { Marker } from '../../../node_modules/react-leaflet/lib/Marker'
-import { getIcon } from '../../components/Markers';
 import { getData, getOra } from '../../DateUtil';
 
 
@@ -25,7 +24,6 @@ export default function SchedaTerremotoPage() {
     const dispatch = useDispatch();
     const params = useParams();
 
-    const [formErrors, setFormErrors] = React.useState<any>(Object);
     const [ricercaEseguita, setRicercaEseguita] = React.useState(false);
 
     const [listaLuoghiPersonali, setListaLuoghiPersonali] = React.useState([]);
@@ -35,18 +33,7 @@ export default function SchedaTerremotoPage() {
     const [paginaComuni, setPaginaComuni] = React.useState(1);
     const [paginaLuoghi, setPaginaLuoghi] = React.useState(1);
 
-
-
-
-
-
     let navigate = useNavigate();
-
-
-
-
-
-
 
     const getTerremoto = async () => {
         dispatch(fetchIsLoadingAction(true));
