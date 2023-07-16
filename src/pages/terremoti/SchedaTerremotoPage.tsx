@@ -102,7 +102,6 @@ export default function SchedaTerremotoPage() {
     }
 
     const getDistanzaLuoghiPersonaliDatoTerremoto = async (pagina: any) => {
-        dispatch(fetchIsLoadingAction(true));
         if (pagina !== 0) {
             await terremotiService.getDistanzaLuoghiPersonaliDatoTerremoto(utenteLoggato.token, params.id, pagina).then(response => {
                 if (response.data.length !== 0) {
@@ -115,9 +114,7 @@ export default function SchedaTerremotoPage() {
                         autoClose: 5000,
                     });
                 }
-                dispatch(fetchIsLoadingAction(false));
             }).catch(e => {
-                dispatch(fetchIsLoadingAction(false));
                 //---------------------------------------------
                 try {
                     console.error(e);
@@ -154,8 +151,6 @@ export default function SchedaTerremotoPage() {
             setRicercaEseguita(true);
         }
     });
-
-    const position = [51.505, -0.09]
 
 
     return (
