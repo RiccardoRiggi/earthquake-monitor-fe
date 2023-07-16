@@ -174,10 +174,11 @@ export default function SchedaTerremotoPage() {
     return (
         <Layout>
 
-            <div className="card shadow-lg mx-4 mt-3">
+            <div className="card shadow-lg mx-2 mt-3">
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center justify-content-between">
                         <h3 className="">
+                        <i className='fa-solid fa-circle-info pe-2 text-primary'></i>
                             {terremoto !== undefined ? "Dettagli terremoto n. " + terremoto.id : ""}
                         </h3>
 
@@ -232,10 +233,12 @@ export default function SchedaTerremotoPage() {
                 </div>
             </div>
 
-            <div className="card shadow-lg mx-4 mt-3">
+            <div className="card shadow-lg mx-2 mt-3">
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center justify-content-between">
                         <h3 className="">
+                        <i className='fa-solid fa-city pe-2 text-primary'></i>
+
                             Elenco dei comuni nei pressi dell'epicentro
                         </h3>
 
@@ -282,10 +285,12 @@ export default function SchedaTerremotoPage() {
                 </div>
             </div>
 
-            <div className="card shadow-lg mx-4 mt-3">
+            <div className="card shadow-lg mx-2 mt-3">
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center justify-content-between">
                         <h3 className="">
+                        <i className='fa-solid fa-home pe-2 text-primary'></i>
+
                             Elenco dei luoghi personali
                         </h3>
 

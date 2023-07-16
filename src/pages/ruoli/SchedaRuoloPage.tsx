@@ -439,7 +439,7 @@ export default function SchedaRuoloPage() {
     return (
         <Layout>
 
-            <div className="card shadow-lg mx-4 mt-3">
+            <div className="card shadow-lg mx-2 mt-3">
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center justify-content-between">
                         <h3 className="">
@@ -483,7 +483,7 @@ export default function SchedaRuoloPage() {
             </div>
 
             {params.idTipoRuolo !== undefined &&
-                <div className="card shadow-lg mx-4 mt-3">
+                <div className="card shadow-lg mx-2 mt-3">
                     <div className="card-header pb-0">
                         <div className="d-flex align-items-center justify-content-between">
                             <h3 className="">
@@ -546,7 +546,7 @@ export default function SchedaRuoloPage() {
             }
 
             {params.idTipoRuolo !== undefined &&
-                <div className="card shadow-lg mx-4 mt-3">
+                <div className="card shadow-lg mx-2 mt-3">
                     <div className="card-header pb-0">
                         <div className="d-flex align-items-center justify-content-between">
                             <h3 className="">
@@ -607,7 +607,7 @@ export default function SchedaRuoloPage() {
             }
 
             {params.idTipoRuolo !== undefined &&
-                <div className="card shadow-lg mx-4 mt-3">
+                <div className="card shadow-lg mx-2 mt-3">
                     <div className="card-header pb-0">
                         <div className="d-flex align-items-center justify-content-between">
                             <h3 className="">

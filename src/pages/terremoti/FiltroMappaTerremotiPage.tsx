@@ -152,7 +152,10 @@ export default function FiltroMappaTerremotiPage() {
                 <div className='col-12'>
                     <div className="card shadow mb-4">
                         <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-primary"><i className="fa-solid fa-filter text-primary pr-1"></i> Filtri</h6>
+                            <h3 className="">
+                                <i className="fa-solid fa-filter text-primary fa-1x pe-2 "></i>
+                                Filtri
+                            </h3>
                         </div>
                         <div className="card-body">
                             <div className='row'>
@@ -174,8 +177,10 @@ export default function FiltroMappaTerremotiPage() {
                 <div className='col-12'>
                     <div className="card shadow mb-4">
                         <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-primary"><i className="fa-solid fa-map-location-dot text-primary pr-1"></i> Mappa</h6>
-                        </div>
+                            <h3 className="">
+                                <i className="fa-solid fa-map-location-dot text-primary fa-1x pe-2 "></i>
+                                Mappa
+                            </h3>                        </div>
                         <div className="card-body">
                             <MapContainer center={[41.60897592585041, 12.593894063067715]} zoom={5} scrollWheelZoom={false} >
                                 <TileLayer

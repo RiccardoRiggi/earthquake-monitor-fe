@@ -84,7 +84,11 @@ export default function MappaTerremotiPage() {
                 <div className='col-12'>
                     <div className="card shadow mb-4">
                         <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 className="m-0 font-weight-bold text-primary"><i className="fa-solid fa-filter text-primary pr-1"></i> Filtri</h6>
+                            <h3 className="">
+                                <i className="fa-solid fa-filter text-primary fa-1x pe-2 "></i>
+                                Filtri
+                            </h3>
+
                             <span className='btn btn-primary' onClick={eseguiRicerca}>Aggiorna mappa</span>
                         </div>
                         <div className="card-body">
@@ -111,7 +115,10 @@ export default function MappaTerremotiPage() {
                 <div className='col-12'>
                     <div className="card shadow mb-4">
                         <div className="card-header py-3 ">
-                            <h6 className="m-0 font-weight-bold text-primary"><i className="fa-solid fa-map-location-dot text-primary pr-1"></i> Mappa</h6>
+                            <h3 className="">
+                                <i className="fa-solid fa-map-location-dot text-primary fa-1x pe-2 "></i>
+                                Mappa
+                            </h3>
                         </div>
                         <div className="card-body">
                             <MapContainer center={[41.60897592585041, 12.593894063067715]} zoom={5} scrollWheelZoom={false}>
@@ -128,7 +135,7 @@ export default function MappaTerremotiPage() {
                                                     <span className='text-center'>
                                                         <span className='h5'>{elemento.magnitude}</span>{elemento.magType}<br />
                                                     </span>
-                                                    {elemento.eventLocationName}<br />{getOra(elemento.time) +" del "+getData(elemento.time)}
+                                                    {elemento.eventLocationName}<br />{getOra(elemento.time) + " del " + getData(elemento.time)}
                                                     <br /><Link to={"/terremoti/" + elemento.id}>Visualizza dettagli</Link>
 
                                                 </div>

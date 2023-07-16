@@ -36,6 +36,7 @@ import SchedaFiltroTerremotoPage from './pages/terremoti/SchedaFiltroTerremotoPa
 import MappaTerremotiPage from './pages/terremoti/MappaTerremotiPage';
 import FiltroMappaTerremotiPage from './pages/terremoti/FiltroMappaTerremotiPage';
 import SchedaTerremotoPage from './pages/terremoti/SchedaTerremotoPage';
+import ListaAggiornamentiPage from './pages/terremoti/ListaAggiornamentiPage';
 
 
 
@@ -54,7 +55,7 @@ function App() {
 
 
           <Route
-            path=""
+            path="/dashboard"
             element={
               <PrivateRoute>
                 <HomePage />
@@ -332,12 +333,30 @@ function App() {
             }
           />
 
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <ListaTerremotiPage />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/lista-aggiornamenti"
+            element={
+              <PrivateRoute>
+                <ListaAggiornamentiPage />
+              </PrivateRoute>
+            }
+          />
+
 
           <Route
             path="*"
             element={
               <PrivateRoute>
-                <HomePage />
+                <ListaTerremotiPage />
               </PrivateRoute>
             }
           />

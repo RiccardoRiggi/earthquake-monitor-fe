@@ -9,7 +9,7 @@ import { getData, getDataMenoXGiorniPrecedenti, getOra } from '../../DateUtil';
 import terremotiService from '../../services/TerremotiService';
 import { fetchIsLoadingAction } from '../../modules/feedback/actions';
 
-export default function ListaTerremotiPage() {
+export default function ListaAggiornamentiPage() {
 
     const utenteLoggato = useSelector((state: any) => state.utenteLoggato);
     const navigate = useNavigate();
@@ -23,11 +23,10 @@ export default function ListaTerremotiPage() {
     const [dataFineIntervallo, setDataFineIntervallo] = React.useState(new Date().toISOString().substring(0, 10));
 
     const getUtenti = async (pagina: any) => {
-        dispatch(fetchIsLoadingAction(true));
 
         if (pagina !== 0) {
 
-            await terremotiService.getTerremotiPerLista(utenteLoggato.token, pagina).then(response => {
+            await terremotiService.getCronJobs(utenteLoggato.token, pagina).then(response => {
                 if (response.data.length !== 0) {
                     setUtenti(response.data);
                     setPaginaUtente(pagina);
@@ -37,9 +36,7 @@ export default function ListaTerremotiPage() {
                         autoClose: 5000,
                     });
                 }
-                dispatch(fetchIsLoadingAction(false));
             }).catch(e => {
-                dispatch(fetchIsLoadingAction(false));
                 //---------------------------------------------
                 try {
                     console.error(e);
@@ -80,7 +77,7 @@ export default function ListaTerremotiPage() {
                     <div className="d-flex align-items-center justify-content-between">
                         <h3 className="">
                             <i className="fa-solid fa-list text-primary fa-1x pe-2 "></i>
-                            Lista terremoti
+                            Lista aggiornamenti
                         </h3>
 
                     </div>
@@ -96,10 +93,7 @@ export default function ListaTerremotiPage() {
                                             <th scope="col">Id</th>
                                             <th scope="col">Data</th>
                                             <th scope="col">Ora</th>
-                                            <th scope="col">Località</th>
-                                            <th scope="col">Magnitudo</th>
-                                            <th scope="col">Profondità</th>
-                                            <th scope="col"></th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -107,14 +101,10 @@ export default function ListaTerremotiPage() {
                                         {
                                             Array.isArray(utenti) && utenti.map((utente: any, index: number) =>
                                                 <tr key={index}>
-                                                    <th className='text-center' scope="row">{utente.id}</th>
-                                                    <td>{getData(utente.time)}</td>
-                                                    <td>{getOra(utente.time)}</td>
-                                                    <td>{utente.eventLocationName}</td>
-                                                    <td>{utente.magType} {utente.magnitude}</td>
-                                                    <td>{utente.depth} Km</td>
-                                                    <td className='text-center'><Link to={"/terremoti/" + utente.id} className='btn btn-primary'><i className="fa-solid fa-circle-info"></i></Link></td>
-
+                                                    <th className='text-center' scope="row">{utente.idCronJob}</th>
+                                                    <td>{getData(utente.dataEvento)}</td>
+                                                    <td>{getOra(utente.dataEvento)}</td>
+                                            
                                                 </tr>
                                             )}
 

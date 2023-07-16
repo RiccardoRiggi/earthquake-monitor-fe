@@ -109,7 +109,7 @@ export default function Layout({ children }: any) {
                         <main className="main-content position-relative border-radius-lg pt-3">
                             <Header></Header>
 
-                            <div className="container-fluid py-4">
+                            <div className="container-fluid ">
 
 
                                 {feedback.isLoading && <div className="text-center">

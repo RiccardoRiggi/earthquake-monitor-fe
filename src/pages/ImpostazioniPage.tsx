@@ -507,7 +507,7 @@ export default function ImpostazioniPage() {
 
     return (
         <Layout>
-            <div className="card shadow-lg mx-4 ">
+            <div className="card shadow-lg mx-2 ">
                 <div className="card-body p-3">
                     <div className="row gx-4">
                         <div className="col-auto">
@@ -532,7 +532,7 @@ export default function ImpostazioniPage() {
                 </div>
             </div>
 
-            <div className="card shadow-lg mx-4 mt-3">
+            <div className="card shadow-lg mx-2 mt-3">
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center">
                         <h3 className="mb-1">
@@ -576,7 +576,7 @@ export default function ImpostazioniPage() {
                 </div>
             </div>
 
-            <div className="card shadow-lg mx-4 mt-3">
+            <div className="card shadow-lg mx-2 mt-3">
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center">
                         <h3 className="mb-1">
@@ -620,7 +620,7 @@ export default function ImpostazioniPage() {
                 </div>
             </div>
 
-            <div className="card shadow-lg mx-4 mt-3">
+            <div className="card shadow-lg mx-2 mt-3">
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center">
                         <h3 className="mb-3">
@@ -667,7 +667,7 @@ export default function ImpostazioniPage() {
                 </div>}
             </div>
 
-            <div className="card shadow-lg mx-4 mt-3">
+            <div className="card shadow-lg mx-2 mt-3">
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center">
                         <h3 className="mb-1">
@@ -736,7 +736,7 @@ export default function ImpostazioniPage() {
 
             </div>
 
-            <div className="card shadow-lg mx-4 mt-3">
+            <div className="card shadow-lg mx-2 mt-3">
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center">
                         <h3 className="mb-1">
@@ -806,7 +806,7 @@ export default function ImpostazioniPage() {
             </div>
 
 
-            <div className="card shadow-lg mx-4 mt-3">
+            <div className="card shadow-lg mx-2 mt-3">
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center">
                         <h3 className="mb-1">

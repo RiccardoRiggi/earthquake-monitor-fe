@@ -185,7 +185,7 @@ export default function LogsPage() {
             <div className='row'>
                 <div className='col-12'>
 
-                    <div className="card shadow-lg mx-4 mt-3">
+                    <div className="card shadow-lg mx-2 mt-3">
                         <div className="card-header pb-0">
                             <div className="d-flex align-items-center">
                                 <h3 className="mb-1">
@@ -266,7 +266,7 @@ export default function LogsPage() {
                         </div>
                     </div>
 
-                    <div className="card shadow-lg mx-4 mt-3">
+                    <div className="card shadow-lg mx-2 mt-3">
                         <div className="card-header pb-0">
                             <div className="d-flex align-items-center">
                                 <h3 className="mb-1">
@@ -323,7 +323,7 @@ export default function LogsPage() {
                         </div>
                     </div>
 
-                    <div className="card shadow-lg mx-4 mt-3">
+                    <div className="card shadow-lg mx-2 mt-3">
                         <div className="card-header pb-0">
                             <div className="d-flex align-items-center">
                                 <h3 className="mb-1">

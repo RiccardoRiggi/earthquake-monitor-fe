@@ -286,172 +286,174 @@ export default function HomePage() {
 
     return (
         <Layout>
-            <div className='row'>
-                <div className="col-xl-3 col-md-6 mb-4">
-                    <div className="card border-left-danger shadow h-100 py-2">
-                        <div className="card-body">
-                            <div className="row no-gutters align-items-center">
-                                <div className="col mr-2">
-                                    <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Voci di menu</div>
-                                    <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroVociMenu}</div>
-                                </div>
-                                <div className="col-auto">
-                                    <i className="fa-solid fa-bars fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-3 col-md-6 mb-4">
-                    <div className="card border-left-danger shadow h-100 py-2">
-                        <div className="card-body">
-                            <div className="row no-gutters align-items-center">
-                                <div className="col mr-2">
-                                    <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Ruoli configurati</div>
-                                    <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroRuoli}</div>
-                                </div>
-                                <div className="col-auto">
-                                    <i className="fa-solid fa-tags fa-2x text-gray-300"></i>
+            <div className='ps-2 pe-2'>
+                <div className='row'>
+                    <div className="col-xl-3 col-md-6 mb-4">
+                        <div className="card border-left-danger shadow h-100 py-2">
+                            <div className="card-body">
+                                <div className="row no-gutters align-items-center">
+                                    <div className="col mr-2">
+                                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Voci di menu</div>
+                                        <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroVociMenu}</div>
+                                    </div>
+                                    <div className="col-auto">
+                                        <i className="fa-solid fa-bars fa-2x text-gray-300"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="col-xl-3 col-md-6 mb-4">
-                    <div className="card border-left-danger shadow h-100 py-2">
-                        <div className="card-body">
-                            <div className="row no-gutters align-items-center">
-                                <div className="col mr-2">
-                                    <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Utenti registrati</div>
-                                    <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroUtenti}</div>
-                                </div>
-                                <div className="col-auto">
-                                    <i className="fas fa-users fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-3 col-md-6 mb-4">
-                    <div className="card border-left-danger shadow h-100 py-2">
-                        <div className="card-body">
-                            <div className="row no-gutters align-items-center">
-                                <div className="col mr-2">
-                                    <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Utenti collegati</div>
-                                    <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroAccessiAttivi}</div>
-                                </div>
-                                <div className="col-auto">
-                                    <i className="fa-solid fa-user-check fa-2x text-gray-300"></i>
+                    <div className="col-xl-3 col-md-6 mb-4">
+                        <div className="card border-left-danger shadow h-100 py-2">
+                            <div className="card-body">
+                                <div className="row no-gutters align-items-center">
+                                    <div className="col mr-2">
+                                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Ruoli configurati</div>
+                                        <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroRuoli}</div>
+                                    </div>
+                                    <div className="col-auto">
+                                        <i className="fa-solid fa-tags fa-2x text-gray-300"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="col-xl-3 col-md-6 mb-4">
-                    <div className="card border-left-danger shadow h-100 py-2">
-                        <div className="card-body">
-                            <div className="row no-gutters align-items-center">
-                                <div className="col mr-2">
-                                    <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Risorse registrate</div>
-                                    <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroRisorse}</div>
-                                </div>
-                                <div className="col-auto">
-                                    <i className="fa-solid fa-sitemap fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-3 col-md-6 mb-4">
-                    <div className="card border-left-danger shadow h-100 py-2">
-                        <div className="card-body">
-                            <div className="row no-gutters align-items-center">
-                                <div className="col mr-2">
-                                    <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Autenticazioni eseguite</div>
-                                    <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroLogin}</div>
-                                </div>
-                                <div className="col-auto">
-                                    <i className="fa-solid fa-right-to-bracket fa-2x text-gray-300"></i>
+                    <div className="col-xl-3 col-md-6 mb-4">
+                        <div className="card border-left-danger shadow h-100 py-2">
+                            <div className="card-body">
+                                <div className="row no-gutters align-items-center">
+                                    <div className="col mr-2">
+                                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Utenti registrati</div>
+                                        <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroUtenti}</div>
+                                    </div>
+                                    <div className="col-auto">
+                                        <i className="fas fa-users fa-2x text-gray-300"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="col-xl-3 col-md-6 mb-4">
-                    <div className="card border-left-danger shadow h-100 py-2">
-                        <div className="card-body">
-                            <div className="row no-gutters align-items-center">
-                                <div className="col mr-2">
-                                    <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Indirizzi ip</div>
-                                    <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroIndirizziIp}</div>
-                                </div>
-                                <div className="col-auto">
-                                    <i className="fa-solid fa-location-crosshairs fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-3 col-md-6 mb-4">
-                    <div className="card border-left-danger shadow h-100 py-2">
-                        <div className="card-body">
-                            <div className="row no-gutters align-items-center">
-                                <div className="col mr-2">
-                                    <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Dispositivi abilitati</div>
-                                    <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroDispositiviFisiciAttivi}</div>
-                                </div>
-                                <div className="col-auto">
-                                    <i className="fa-solid fa-mobile-screen fa-2x text-gray-300"></i>
+                    <div className="col-xl-3 col-md-6 mb-4">
+                        <div className="card border-left-danger shadow h-100 py-2">
+                            <div className="card-body">
+                                <div className="row no-gutters align-items-center">
+                                    <div className="col mr-2">
+                                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Utenti collegati</div>
+                                        <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroAccessiAttivi}</div>
+                                    </div>
+                                    <div className="col-auto">
+                                        <i className="fa-solid fa-user-check fa-2x text-gray-300"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-
-
-                <div className="col-12 mb-4">
-                    <div className="card border-left-danger shadow h-100 py-2">
-                        <div className="card-body">
-                            <div >
-                                <h3 className="">
-                                    <i className="fa-solid fa-sitemap text-primary fa-1x pe-2 "></i>
-                                    Risorse chiamate
-                                </h3>
-
-                                <div className='row'>
-
-                                    {
-                                        Array.isArray(statistiche) && statistiche.map((statistica: any, index: number) =>
-                                            <div className='col-12 col-md-6'><div className="pt-3 text-xs font-weight-bold text-primary  mb-1">
-                                                {statistica.nomeMetodo}</div>
-                                                <div className="progress" style={{ height: "20px" }}>
-                                                    <div className="progress-bar" style={{ width: (statistica.chiamate * 100 / getValoreMassimo() > 25 ? statistica.chiamate * 100 / getValoreMassimo() + "%" : 25 + "%") }} >{statistica.chiamate} chiamate</div>
-                                                </div></div>
-                                        )}
-
+                    <div className="col-xl-3 col-md-6 mb-4">
+                        <div className="card border-left-danger shadow h-100 py-2">
+                            <div className="card-body">
+                                <div className="row no-gutters align-items-center">
+                                    <div className="col mr-2">
+                                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Risorse registrate</div>
+                                        <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroRisorse}</div>
+                                    </div>
+                                    <div className="col-auto">
+                                        <i className="fa-solid fa-sitemap fa-2x text-gray-300"></i>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-                </div>
 
+                    <div className="col-xl-3 col-md-6 mb-4">
+                        <div className="card border-left-danger shadow h-100 py-2">
+                            <div className="card-body">
+                                <div className="row no-gutters align-items-center">
+                                    <div className="col mr-2">
+                                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Autenticazioni eseguite</div>
+                                        <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroLogin}</div>
+                                    </div>
+                                    <div className="col-auto">
+                                        <i className="fa-solid fa-right-to-bracket fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-xl-3 col-md-6 mb-4">
+                        <div className="card border-left-danger shadow h-100 py-2">
+                            <div className="card-body">
+                                <div className="row no-gutters align-items-center">
+                                    <div className="col mr-2">
+                                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Indirizzi ip</div>
+                                        <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroIndirizziIp}</div>
+                                    </div>
+                                    <div className="col-auto">
+                                        <i className="fa-solid fa-location-crosshairs fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-xl-3 col-md-6 mb-4">
+                        <div className="card border-left-danger shadow h-100 py-2">
+                            <div className="card-body">
+                                <div className="row no-gutters align-items-center">
+                                    <div className="col mr-2">
+                                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Dispositivi abilitati</div>
+                                        <div className="h5 mb-0 font-weight-bold text-gray-800">{numeroDispositiviFisiciAttivi}</div>
+                                    </div>
+                                    <div className="col-auto">
+                                        <i className="fa-solid fa-mobile-screen fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div className="col-12 mb-4">
+                        <div className="card border-left-danger shadow h-100 py-2">
+                            <div className="card-body">
+                                <div >
+                                    <h3 className="">
+                                        <i className="fa-solid fa-sitemap text-primary fa-1x pe-2 "></i>
+                                        Risorse chiamate
+                                    </h3>
+
+                                    <div className='row'>
+
+                                        {
+                                            Array.isArray(statistiche) && statistiche.map((statistica: any, index: number) =>
+                                                <div className='col-12 col-md-6'><div className="pt-3 text-xs font-weight-bold text-primary  mb-1">
+                                                    {statistica.nomeMetodo}</div>
+                                                    <div className="progress" style={{ height: "20px" }}>
+                                                        <div className="progress-bar" style={{ width: (statistica.chiamate * 100 / getValoreMassimo() > 25 ? statistica.chiamate * 100 / getValoreMassimo() + "%" : 25 + "%") }} >{statistica.chiamate} chiamate</div>
+                                                    </div></div>
+                                            )}
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </Layout>
     );

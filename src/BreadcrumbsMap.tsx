@@ -129,9 +129,55 @@ let listaAccessi: BreadcrumbType =
   path: "/lista-accessi"
 }
 
+let listaTerremoti: BreadcrumbType =
+{
+  nome: "Lista terremoti",
+  path: "/terremoti"
+}
+
+let schedaTerremoto: BreadcrumbType =
+{
+  nome: "Scheda terremoto",
+  path: "/terremoti"
+}
+
+let gestioneFiltriPersonali: BreadcrumbType =
+{
+  nome: "Gestione filtri",
+  path: "/terremoti"
+}
+
+let schedaFiltroPersonale: BreadcrumbType =
+{
+  nome: "Scheda filtro",
+  path: "/filtri-personali"
+}
+
+let filtroMappaTerremoti: BreadcrumbType =
+{
+  nome: "Cerca terremoti dato un punto geografico",
+  path: "/filtro-mappa-terremoti"
+}
+
+let visualizzaMappaTerremoti: BreadcrumbType =
+{
+  nome: "Visualizza mappa",
+  path: "/mappa-terremoti"
+}
+
+let listaAggiornamenti: BreadcrumbType =
+{
+  nome: "Lista aggiornamenti",
+  path: "/lista-aggiornamenti"
+}
+
 export default function BreadcrumbsMap(pathName: any) {
   let array: BreadcrumbType[] = [];
   array.push(homePage);
+
+  if ("/" === pathName) {
+    array.push(listaTerremoti);
+  }
 
   if ("/impostazioni" === pathName) {
     array.push(impostazioni);
@@ -220,6 +266,37 @@ export default function BreadcrumbsMap(pathName: any) {
 
   if ("/lista-accessi" === pathName) {
     array.push(listaAccessi);
+  }
+
+  if ("/terremoti" === pathName) {
+    array.push(listaTerremoti);
+  }
+
+  if (pathName.includes("/terremoti/")) {
+    array.push(listaTerremoti);
+    array.push(schedaTerremoto);
+  }
+
+  if ("/lista-filtri-personali" === pathName) {
+    array.push(gestioneFiltriPersonali);
+  }
+
+  if (pathName.includes("/filtri-personali")) {
+    array.push(gestioneFiltriPersonali);
+    array.push(schedaFiltroPersonale);
+  }
+
+  if ("/filtro-mappa-terremoti" === pathName) {
+    array.push(filtroMappaTerremoti);
+  }
+
+  
+  if ("/mappa-terremoti" === pathName) {
+    array.push(visualizzaMappaTerremoti);
+  }
+
+  if ("/lista-aggiornamenti" === pathName) {
+    array.push(listaAggiornamenti);
   }
 
   return array;

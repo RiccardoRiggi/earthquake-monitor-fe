@@ -84,46 +84,6 @@ const getTerremoto = (token: any, id: any) => {
     return http.get(root, { params, headers });
 }
 
-/*const getUtente = (token: any, idUtente: any) => {
-    const params = new URLSearchParams([["nomeMetodo", "getUtente"], ["idUtente", idUtente]]);
-    const headers = {
-        token: token,
-    }
-
-    return http.get(root, { params, headers });
-}
-
-
-
-const modificaUtente = (token: any, jsonBody: any, idUtente: any) => {
-    const params = new URLSearchParams([["nomeMetodo", "modificaUtente"], ["idUtente", idUtente]]);
-    const headers = {
-        token: token,
-    }
-
-    return http.put(root, jsonBody, { params, headers });
-}
-
-
-
-const bloccaUtente = (token: any, jsonBody: any, idUtente: any) => {
-    const params = new URLSearchParams([["nomeMetodo", "bloccaUtente"], ["idUtente", idUtente]]);
-    const headers = {
-        token: token,
-    }
-
-    return http.put(root, jsonBody, { params, headers });
-}
-
-const sbloccaUtente = (token: any, jsonBody: any, idUtente: any) => {
-    const params = new URLSearchParams([["nomeMetodo", "sbloccaUtente"], ["idUtente", idUtente]]);
-    const headers = {
-        token: token,
-    }
-
-    return http.put(root, jsonBody, { params, headers });
-}*/
-
 const getDistanzaComuniDatoTerremoto = (token: any, id: any, pagina: any) => {
     const params = new URLSearchParams([["nomeMetodo", "getDistanzaComuniDatoTerremoto"], ["id", id], ["pagina", pagina]]);
     const headers = {
@@ -135,6 +95,15 @@ const getDistanzaComuniDatoTerremoto = (token: any, id: any, pagina: any) => {
 
 const getDistanzaLuoghiPersonaliDatoTerremoto = (token: any, id: any, pagina: any) => {
     const params = new URLSearchParams([["nomeMetodo", "getDistanzaLuoghiPersonaliDatoTerremoto"], ["id", id], ["pagina", pagina]]);
+    const headers = {
+        token: token,
+    }
+
+    return http.get(root, { params, headers });
+}
+
+const getCronJobs = (token: any, pagina: any) => {
+    const params = new URLSearchParams([["nomeMetodo", "getCronJobs"], ["pagina", pagina]]);
     const headers = {
         token: token,
     }
@@ -154,7 +123,7 @@ const terremotiService = {
     getFiltroPersonale,
     deleteFiltroPersonale,
     getDistanzaComuniDatoTerremoto,
-    getDistanzaLuoghiPersonaliDatoTerremoto,/*
-    getCronJobs*/
+    getDistanzaLuoghiPersonaliDatoTerremoto,
+    getCronJobs
 };
 export default terremotiService;

@@ -2,7 +2,9 @@ export default function PageTitleMap(pathName: any) {
   console.info(pathName);
 
   if ("/" === pathName) {
-    return "Homepage"
+    return "Lista terremoti"
+  } else if ("/dashboard" === pathName) {
+    return "Dashboard"
   } else if ("/impostazioni" === pathName) {
     return "Impostazioni utente"
   } else if ("/logs/error" === pathName) {
@@ -43,6 +45,20 @@ export default function PageTitleMap(pathName: any) {
     return "Lista notifiche"
   } else if ("/lista-accessi" === pathName) {
     return "Lista accessi"
+  } else if ("/terremoti" === pathName) {
+    return "Lista terremoti"
+  } else if (pathName.includes("/terremoti/")) {
+    return "Scheda terremoto"
+  } else if ("/mappa-terremoti" === pathName) {
+    return "Visualizza mappa"
+  } else if ("/filtro-mappa-terremoti" === pathName) {
+    return "Cerca terremoti dato un punto geografico"
+  } else if ("/lista-filtri-personali" === pathName) {
+    return "Gestione filtri personali"
+  } else if (pathName.includes("/filtri-personali")) {
+    return "Scheda filtro"
+  } else if (pathName.includes("/lista-aggiornamenti")) {
+    return "Lista aggiornamenti"
   } else {
     return "";
   }
