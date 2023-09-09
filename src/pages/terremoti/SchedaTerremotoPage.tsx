@@ -160,7 +160,7 @@ export default function SchedaTerremotoPage() {
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center justify-content-between">
                         <h3 className="">
-                        <i className='fa-solid fa-circle-info pe-2 text-primary'></i>
+                            <i className='fa-solid fa-circle-info pe-2 text-primary'></i>
                             {terremoto !== undefined ? "Dettagli terremoto n. " + terremoto.id : ""}
                         </h3>
 
@@ -219,7 +219,7 @@ export default function SchedaTerremotoPage() {
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center justify-content-between">
                         <h3 className="">
-                        <i className='fa-solid fa-city pe-2 text-primary'></i>
+                            <i className='fa-solid fa-city pe-2 text-primary'></i>
 
                             Elenco dei comuni nei pressi dell'epicentro
                         </h3>
@@ -229,29 +229,31 @@ export default function SchedaTerremotoPage() {
                 <div className="card-body p-3">
                     <div className='row'>
                         <div className='col-12'>
-                            <table className="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Distanza</th>
-                                        <th scope="col">Comune</th>
-                                        <th scope="col">Provincia</th>
-                                        <th scope="col">Regione</th>
-                                        <th scope="col">N. abitanti</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        Array.isArray(listaComuni) && listaComuni.map((comune: any, index: number) =>
-                                            <tr key={index}>
-                                                <td>{comune.distanza} Km</td>
-                                                <td>{comune.descrizioneComune}</td>
-                                                <td>{comune.descrizioneProvincia}</td>
-                                                <td>{comune.descrizioneRegione}</td>
-                                                <td>{comune.residenti}</td>
-                                            </tr>
-                                        )}
-                                </tbody>
-                            </table>
+                            <div className='table-responsive'>
+                                <table className="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Distanza</th>
+                                            <th scope="col">Comune</th>
+                                            <th scope="col">Provincia</th>
+                                            <th scope="col">Regione</th>
+                                            <th scope="col">N. abitanti</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            Array.isArray(listaComuni) && listaComuni.map((comune: any, index: number) =>
+                                                <tr key={index}>
+                                                    <td>{comune.distanza} Km</td>
+                                                    <td>{comune.descrizioneComune}</td>
+                                                    <td>{comune.descrizioneProvincia}</td>
+                                                    <td>{comune.descrizioneRegione}</td>
+                                                    <td>{comune.residenti}</td>
+                                                </tr>
+                                            )}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div className='col-12 text-end'>
                             <small>Pagina {paginaComuni}</small>
@@ -271,7 +273,7 @@ export default function SchedaTerremotoPage() {
                 <div className="card-header pb-0">
                     <div className="d-flex align-items-center justify-content-between">
                         <h3 className="">
-                        <i className='fa-solid fa-home pe-2 text-primary'></i>
+                            <i className='fa-solid fa-home pe-2 text-primary'></i>
 
                             Elenco dei luoghi personali
                         </h3>
@@ -281,31 +283,33 @@ export default function SchedaTerremotoPage() {
                 <div className="card-body p-3">
                     <div className='row'>
                         <div className='col-12'>
-                            <table className="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Distanza</th>
-                                        <th scope="col">Indirizzo</th>
-                                        <th scope="col">Comune</th>
-                                        <th scope="col">Provincia</th>
-                                        <th scope="col">Regione</th>
+                            <div className='table-responsive'>
+                                <table className="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Distanza</th>
+                                            <th scope="col">Indirizzo</th>
+                                            <th scope="col">Comune</th>
+                                            <th scope="col">Provincia</th>
+                                            <th scope="col">Regione</th>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        Array.isArray(listaLuoghiPersonali) && listaLuoghiPersonali.map((comune: any, index: number) =>
-                                            <tr key={index}>
-                                                <td>{comune.distanza} Km</td>
-                                                <td>{comune.indirizzo}</td>
-                                                <td>{comune.descrizioneComune}</td>
-                                                <td>{comune.descrizioneProvincia}</td>
-                                                <td>{comune.descrizioneRegione}</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            Array.isArray(listaLuoghiPersonali) && listaLuoghiPersonali.map((comune: any, index: number) =>
+                                                <tr key={index}>
+                                                    <td>{comune.distanza} Km</td>
+                                                    <td>{comune.indirizzo}</td>
+                                                    <td>{comune.descrizioneComune}</td>
+                                                    <td>{comune.descrizioneProvincia}</td>
+                                                    <td>{comune.descrizioneRegione}</td>
 
-                                            </tr>
-                                        )}
-                                </tbody>
-                            </table>
+                                                </tr>
+                                            )}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div className='col-12 text-end'>
                             <small>Pagina {paginaLuoghi}</small>
