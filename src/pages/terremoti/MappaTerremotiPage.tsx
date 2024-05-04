@@ -15,6 +15,9 @@ import { TileLayer } from '../../../node_modules/react-leaflet/lib/TileLayer'
 import { Popup } from '../../../node_modules/react-leaflet/lib/Popup'
 import { Marker } from '../../../node_modules/react-leaflet/lib/Marker'
 import { getIcon } from '../../components/Markers';
+
+import MarkerClusterGroup from 'react-leaflet-cluster'
+
 export default function MappaTerremotiPage() {
 
     const utenteLoggato = useSelector((state: any) => state.utenteLoggato);
@@ -126,24 +129,24 @@ export default function MappaTerremotiPage() {
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                 />
+                                <MarkerClusterGroup >
+                                    {Array.isArray(lista) && lista.map((elemento: any, index: number) =>
+                                        <span key={index}>
+                                            <Marker icon={getIcon(elemento.magnitude)} position={[elemento.latitude, elemento.longitude]}>
+                                                <Popup>
+                                                    <div className='text-center'>
+                                                        <span className='text-center'>
+                                                            <span className='h5'>{elemento.magnitude}</span>{elemento.magType}<br />
+                                                        </span>
+                                                        {elemento.eventLocationName}<br />{getOra(elemento.time) + " del " + getData(elemento.time)}
+                                                        <br /><Link to={"/terremoti/" + elemento.id}>Visualizza dettagli</Link>
 
-                                {Array.isArray(lista) && lista.map((elemento: any, index: number) =>
-                                    <span key={index}>
-                                        <Marker icon={getIcon(elemento.magnitude)} position={[elemento.latitude, elemento.longitude]}>
-                                            <Popup>
-                                                <div className='text-center'>
-                                                    <span className='text-center'>
-                                                        <span className='h5'>{elemento.magnitude}</span>{elemento.magType}<br />
-                                                    </span>
-                                                    {elemento.eventLocationName}<br />{getOra(elemento.time) + " del " + getData(elemento.time)}
-                                                    <br /><Link to={"/terremoti/" + elemento.id}>Visualizza dettagli</Link>
-
-                                                </div>
-                                            </Popup>
-                                        </Marker>
-                                    </span>
-                                )}
-
+                                                    </div>
+                                                </Popup>
+                                            </Marker>
+                                        </span>
+                                    )}
+                                </MarkerClusterGroup>
                             </MapContainer>
                         </div>
                     </div>

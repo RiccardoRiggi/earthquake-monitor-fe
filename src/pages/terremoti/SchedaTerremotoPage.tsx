@@ -16,6 +16,7 @@ import { TileLayer } from '../../../node_modules/react-leaflet/lib/TileLayer'
 import { Popup } from '../../../node_modules/react-leaflet/lib/Popup'
 import { Marker } from '../../../node_modules/react-leaflet/lib/Marker'
 import { getData, getOra } from '../../DateUtil';
+import { getIcon } from '../../components/Markers';
 
 
 export default function SchedaTerremotoPage() {
@@ -177,7 +178,7 @@ export default function SchedaTerremotoPage() {
                                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                     />
-                                    <Marker position={[terremoto.latitude, terremoto.longitude]}>
+                                    <Marker icon={getIcon(terremoto.magnitude)} position={[terremoto.latitude, terremoto.longitude]}>
                                         <Popup>
                                             <div className='text-center'>
                                                 <span className='text-center'>
